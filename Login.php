@@ -17,7 +17,7 @@
 
   $resultArr = array();
   if ($name != "" && $pass != "") {
-    $sql = "SELECT Name, Password FROM Users WHERE Name='";
+    $sql = "SELECT Name, Password, UserID FROM Users WHERE Name='";
     $sql .= $name;
     $sql .= "' AND Password='";
     $sql .= $pass;
@@ -26,7 +26,7 @@
     if($result = $conn->query($sql)) {
       $userArr = array();
       while ($rs = $result->fetch_array(MYSQLI_ASSOC)) {
-        $userArr[] = array("name"=>utf8_encode($rs['Name']), "password"=>utf8_encode($rs['Password']));
+        $userArr[] = array("name"=>utf8_encode($rs['Name']), "password"=>utf8_encode($rs['Password']), "userID"=>utf8_encode($rs['UserID']));
       }
       if (count($userArr)>0){
         $resultArr['success'] = true;
@@ -44,9 +44,7 @@
     $resultArr['errorMsg'] = "Username and/or password invalid";
   }
 
-  json_encode($resultArr);
-
-  echo $resultArr['success'];
+  echo json_encode($resultArr);
 
   $conn->close();
 ?>
