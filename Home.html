@@ -8,34 +8,57 @@
     <title>Home</title>
   </head>
   <body>
-    <div class="header">
-      <div id="user-profile"></div>
+    <div id="header">
+      <div id="login-profile"></div>
+      <button id="logout-btn" type="button" hidden>Logout</button>
+      <br />
+      <div id="errorMsg"></div>
     </div>
-    <div class="body">
+    <div id="home-body">
 
-      <form id="login-form-container" action="/Login.php" method="post" hidden>
+      <div id="login-form-container" hidden>
+        <div class="section-header">Login:</div><br />
         Name: <br />
         <input id="login-name" type="text" name="name" /> <br />
         Password: <br />
         <input id="login-pass" type="password" name="password" />
         <br /><br />
-        <input id="submit-login" type="submit" value="Submit"/>
-      </form>
+        <button id="submit-login" type="button">Submit</button>
+      </div>
 
-      <form id="register-form-container" action="Register_User.php" method="post" hidden>
+      <div id="register-form-container" hidden>
+        <div class="section-header">Register new user:</div><br />
         Name: <br />
         <input id="register-name" type="text" name="name" /> <br />
         Password: <br />
         <input id="register-pass" type="password" name="password" />
         <br /><br />
         <input id="submit-register" type="submit" value="Submit"/>
-      </form>
+      </div>
 
       <div id="btn-group">
         <button id="login-btn" type="button">Login</button>
         <button id="register-btn" type="button">Register</button>
       </div>
     </div>
-    <div class="footer"></div>
+    <div id="note-body" hidden>
+      <div id="create-note-block">
+        <div id="note-form-container">
+          <div class="section-header">Create new note:</div><br />
+          Title: <br />
+          <input id="note-title" type="text" maxlength="150"/><br />
+          Content: <br />
+          <textarea id="note-content" rows="10" cols="30"></textarea>
+          <br /><br />
+          <button id="submit-note" type button>Create Note</button>
+        </div>
+      </div>
+      <div class="vertical-separator"></div>
+      <div id="view-note-block">
+        <ul id="notes-displayed">
+        </ul>
+      </div>
+    </div>
+    <div id="footer"></div>
   </body>
 </html>
