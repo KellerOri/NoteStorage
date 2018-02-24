@@ -64,6 +64,8 @@ $(document).ready(function() {
       console.log(data);
       if(data.success){
         loadNote(nTitle, nContent);
+        $("#note-title").val('');
+        $("#note-content").val('');
       } else {
         err = data.errorMsg;
       }
