@@ -20,6 +20,35 @@ $(document).ready(function() {
     $("#btn-group").hide();
   });
 
+  $("#submit-register").click(function() {
+    var rName = $("#register-name").val();
+    var rPass = $("#register-pass").val();
+    var err = "";
+
+    console.log(rName + ", " + rPass);
+
+    $.post("RegisterUser.php", {
+      name: rName,
+      password: rPass
+    },
+    function (data, status) {
+      console.log(data);
+      console.log(status);
+      if (data.success) {
+        console.log(data);
+        $("#register-name").val("");
+        $("#register-pass").val("");
+        err = "User has been registered!";
+      } else {
+        console.log(data);
+        err = data.errorMsg;
+      }
+    });
+
+    $("#errorMsg").text(err);
+
+  });
+
   $("#submit-login").click(function() {
     var lName = $("#login-name").val();
     var lPass = $("#login-pass").val();
@@ -33,10 +62,12 @@ $(document).ready(function() {
       if (data.success){
         var login_data = data.user[0];
         setGlobalUserID(login_data.userID);
+        $("#login-name").val("");
+        $("#login-pass").val("");
         $("#home-body").hide();
         $("#note-body").show();
         $("#login-profile").text("Now logged in as: " + login_data.name);
-        $("#logout-btn").show;
+        $("#logout-btn").show();
         findAndLoadNotes(login_data.userID);
       } else {
         err = data.errorMsg;
@@ -80,6 +111,8 @@ $(document).ready(function() {
     if (logout){
       global_userID = 0;
       $("#note-body").hide();
+      $("#login-profile").hide();
+      $("#logout-btn").hide();
       $("#home-body").show();
     }
   })
