@@ -5,55 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="Home.js"></script>
+    <link rel="stylesheet" type="text/css" href="Home.css">
     <title>Home</title>
   </head>
   <body>
     <div id="header">
       <div id="login-profile"></div>
-      <button id="logout-btn" type="button" hidden>Logout</button>
-      <br />
+      <button id="logout-btn" class="btn" type="button" hidden>Logout</button>
       <div id="errorMsg"></div>
     </div>
     <div id="home-body">
 
       <div id="login-form-container" hidden>
-        <div class="section-header">Login:</div><br />
-        Name: <br />
-        <input id="login-name" type="text" name="name" /> <br />
-        Password: <br />
+        <div class="section-header">Login:</div>
+        <label>Name:</label>
+        <input id="login-name" type="text" name="name" />
+        <label>Password:</label>
         <input id="login-pass" type="password" name="password" />
-        <br /><br />
-        <button id="submit-login" type="button">Submit</button>
+        <button id="submit-login" class="btn" type="button">Submit</button>
       </div>
 
       <div id="register-form-container" hidden>
-        <div class="section-header">Register new user:</div><br />
-        Name: <br />
-        <input id="register-name" type="text" name="name" /> <br />
-        Password: <br />
+        <div class="section-header">Register new user:</div>
+        <label>Name:</label>
+        <input id="register-name" type="text" name="name" />
+        <label>Password:</label>
         <input id="register-pass" type="password" name="password" />
-        <br /><br />
-        <input id="submit-register" type="submit" value="Submit"/>
+        <button id="submit-register" class="btn" type="button">Submit</Button>
       </div>
 
       <div id="btn-group">
-        <button id="login-btn" type="button">Login</button>
-        <button id="register-btn" type="button">Register</button>
+        <button id="login-btn" class="btn" type="button">Login</button>
+        <button id="register-btn" class="btn" type="button">Register</button>
       </div>
     </div>
     <div id="note-body" hidden>
       <div id="create-note-block">
         <div id="note-form-container">
-          <div class="section-header">Create new note:</div><br />
-          Title: <br />
-          <input id="note-title" type="text" maxlength="150"/><br />
-          Content: <br />
+          <div class="section-header">Create new note:</div>
+          <label>Title:</label>
+          <input id="note-title" type="text" maxlength="150"/>
+          <label>Content:</label>
           <textarea id="note-content" rows="10" cols="30"></textarea>
-          <br /><br />
-          <button id="submit-note" type button>Create Note</button>
+          <button id="submit-note" class="btn" type button>Create Note</button>
         </div>
       </div>
-      <div class="vertical-separator"></div>
       <div id="view-note-block">
         <ul id="notes-displayed">
         </ul>
